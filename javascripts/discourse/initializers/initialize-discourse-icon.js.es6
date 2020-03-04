@@ -6,8 +6,15 @@ function _attachIcons($cooked) {
   const icons = $cooked[0].querySelectorAll(".d-wrap[data-wrap=icon]");
   icons.forEach(icon => {
     const id = escapeExpression(icon.getAttribute("data-id"));
-    const htmlIcon = renderIcon("string", id).htmlSafe();
-    icon.innerHTML = htmlIcon;
+    if (Discourse.SvgIconList && Discourse.SvgIconList.indexOf(id) > -1) {
+      const htmlIcon = renderIcon("string", id).htmlSafe();
+      icon.innerHTML = htmlIcon;
+    } else {
+      const span = document.createElement("span");
+      span.classList.add("icon-misisng");
+      span.innerText = `[${I18n.t(themePrefix("icon-missing"))}]`;
+      icon.replaceWith(span);
+    }
   });
 }
 
