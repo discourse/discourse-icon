@@ -6,7 +6,8 @@ function _attachIcons($cooked) {
   const icons = $cooked[0].querySelectorAll(".d-wrap[data-wrap=icon]");
   icons.forEach(icon => {
     const id = escapeExpression(icon.getAttribute("data-id"));
-    const htmlIcon = renderIcon("string", id).htmlSafe();
+    const params = {translatedtitle: id};
+    const htmlIcon = renderIcon("string", id, params).htmlSafe();
     icon.innerHTML = htmlIcon;
   });
 }
