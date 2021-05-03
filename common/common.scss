@@ -3,7 +3,9 @@
 }
 
 img.svg-as-img {
-  height: 1em;
+  // !important needed here because we can't set height in img tag
+  // so we need to ensure core styling is always overriden
+  height: 1em !important;
   width: auto;
   padding-bottom: 0;
 }
