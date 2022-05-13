@@ -1,17 +1,18 @@
 import { escapeExpression } from "discourse/lib/utilities";
 import { renderIcon } from "discourse-common/lib/icon-library";
 import { withPluginApi } from "discourse/lib/plugin-api";
+import { htmlSafe } from "@ember/template";
 
 function _attachIcons($cooked) {
   const icons = $cooked[0].querySelectorAll(".d-wrap[data-wrap=icon]");
-  icons.forEach(icon => {
+  icons.forEach((icon) => {
     const id = escapeExpression(icon.dataset.id);
     const params = { translatedtitle: id };
-    const isExistingIconId = require("discourse-common/lib/icon-library")
-      .isExistingIconId;
+    const isExistingIconId =
+      require("discourse-common/lib/icon-library").isExistingIconId;
 
     if (!isExistingIconId || (isExistingIconId && isExistingIconId(id))) {
-      icon.innerHTML = renderIcon("string", id, params).htmlSafe();
+      icon.innerHTML = htmlSafe(renderIcon("string", id, params));
     } else {
       const img = document.createElement("img");
       img.classList.add("svg-as-img");
@@ -31,10 +32,10 @@ export default {
   name: "discourse-icon",
 
   initialize() {
-    withPluginApi("0.8.7", api => {
+    withPluginApi("0.8.7", (api) => {
       api.decorateCooked(_attachIcons, {
-        id: "discourse-icon"
+        id: "discourse-icon",
       });
     });
-  }
+  },
 };
