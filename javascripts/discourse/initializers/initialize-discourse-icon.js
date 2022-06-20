@@ -7,7 +7,7 @@ function _attachIcons($cooked) {
   const icons = $cooked[0].querySelectorAll(".d-wrap[data-wrap=icon]");
   icons.forEach((icon) => {
     const id = escapeExpression(icon.dataset.id);
-    const params = { translatedtitle: id };
+    const params = { translatedTitle: id };
     const isExistingIconId =
       require("discourse-common/lib/icon-library").isExistingIconId;
 
