@@ -1,10 +1,10 @@
+import { htmlSafe } from "@ember/template";
+import { withPluginApi } from "discourse/lib/plugin-api";
 import { escapeExpression } from "discourse/lib/utilities";
 import {
   isExistingIconId,
   renderIcon,
 } from "discourse-common/lib/icon-library";
-import { withPluginApi } from "discourse/lib/plugin-api";
-import { htmlSafe } from "@ember/template";
 
 function _attachIcons(cooked) {
   const icons = cooked.querySelectorAll(".d-wrap[data-wrap=icon]");
