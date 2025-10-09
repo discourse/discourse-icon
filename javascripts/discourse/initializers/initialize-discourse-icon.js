@@ -33,7 +33,7 @@ export default {
   name: "discourse-icon",
 
   initialize() {
-    withPluginApi("0.8.7", (api) => {
+    withPluginApi((api) => {
       api.decorateCookedElement(_attachIcons, {
         id: "discourse-icon",
       });
