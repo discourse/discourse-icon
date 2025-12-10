@@ -39,20 +39,22 @@ export default {
         id: "discourse-icon",
       });
 
-      api.addComposerToolbarPopupMenuOption({
-        action(event) {
-          const modal = api.container.lookup("service:modal");
-          modal.show(IconPickerModal, {
-            model: {
-              insert: (iconId) =>
-                event.addText(`[wrap=icon id=${iconId}][/wrap]`),
-            },
-          });
-        },
-        group: "insertions",
-        label: themePrefix("toolbar.button_label"),
-        icon: "discourse-emojis",
-      });
+      if (settings.insert_icon_composer_button_enabled) {
+        api.addComposerToolbarPopupMenuOption({
+          action(event) {
+            const modal = api.container.lookup("service:modal");
+            modal.show(IconPickerModal, {
+              model: {
+                insert: (iconId) =>
+                  event.addText(`[wrap=icon id=${iconId}][/wrap]`),
+              },
+            });
+          },
+          group: "insertions",
+          label: themePrefix("toolbar.button_label"),
+          icon: "discourse-emojis",
+        });
+      }
     });
   },
 };

@@ -1,0 +1,3 @@
+insert_icon_composer_button_enabled:
+  type: bool
+  default: true  
