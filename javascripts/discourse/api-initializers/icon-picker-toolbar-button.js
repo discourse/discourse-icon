@@ -6,9 +6,10 @@ export default apiInitializer((api) => {
     action(event) {
       const modal = api.container.lookup("service:modal");
       modal.show(IconPickerModal, {
-        model: {}
+        model: {
+          insert: (iconId) => event.addText(`[wrap=icon id=${iconId}][/wrap]`)
+        }
       });
-      event.addText("[wrap=icon id=heart][/wrap]");
     },
     group: "insertions",
     label: themePrefix("toolbar.button_label"),
