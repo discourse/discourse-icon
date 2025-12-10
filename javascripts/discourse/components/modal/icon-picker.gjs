@@ -1,6 +1,6 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { fn,hash  } from "@ember/helper";
+import { hash } from "@ember/helper";
 import { action } from "@ember/object";
 import DButton from "discourse/components/d-button";
 import DModal from "discourse/components/d-modal";
@@ -14,6 +14,13 @@ export default class IconPickerModal extends Component {
   handleIconChange(newIcon) {
     this.icon = newIcon;
   }
+
+  @action
+  insertIcon() {
+    this.args.model.insert(this.icon);
+    this.args.closeModal();
+  }
+
 
   <template>
     <DModal
@@ -35,7 +42,7 @@ export default class IconPickerModal extends Component {
         <DButton
           @label="composer.link_dialog_action"
           class="icon-picker-modal__insert-button btn-primary"
-          @action={{fn @model.insert "heart"}}
+          @action={{this.insertIcon}}
         />
         <DButton
           @label="cancel"
