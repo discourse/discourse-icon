@@ -11,7 +11,7 @@ export default apiInitializer((api) => {
       event.addText("[wrap=icon id=heart][/wrap]");
     },
     group: "insertions",
-    label: themePrefix("toolbar.insert"),
+    label: themePrefix("toolbar.button_label"),
     icon: "discourse-emojis",
   });
 });
