@@ -1,10 +1,20 @@
 import Component from "@glimmer/component";
-import { fn } from "@ember/helper";
+import { tracked } from "@glimmer/tracking";
+import { fn,hash  } from "@ember/helper";
+import { action } from "@ember/object";
 import DButton from "discourse/components/d-button";
 import DModal from "discourse/components/d-modal";
+import IconPicker from "discourse/select-kit/components/icon-picker";
 import { i18n } from "discourse-i18n";
 
 export default class IconPickerModal extends Component {
+  @tracked icon = null;
+
+  @action
+  handleIconChange(newIcon) {
+    this.icon = newIcon;
+  }
+
   <template>
     <DModal
       @title={{i18n (themePrefix "modal.title")}}
@@ -13,6 +23,11 @@ export default class IconPickerModal extends Component {
     >
       <:body>
         <div class="icon-picker-modal__icon-picker">
+          <IconPicker
+            @value={{this.icon}}
+            @options={{hash maximum=1}}
+            @onChange={{this.handleIconChange}}
+          />
         </div>
       </:body>
 
