@@ -16,11 +16,11 @@ export default class IconPickerModal extends Component {
 
       <:footer>
         <DButton
-          @translatedLabel={{i18n (themePrefix "modal.insert")}}
+          @label="composer.link_dialog_action"
           class="icon-picker-modal__insert-button btn-primary"
         />
         <DButton
-          @translatedLabel={{i18n (themePrefix "modal.cancel")}}
+          @label="cancel"
           class="icon-picker-modal__cancel-button btn-default"
         />
       </:footer>
