@@ -8,6 +8,7 @@ export default class IconPickerModal extends Component {
     <DModal
       @title="Insert Icon"
       class="icon-picker-modal"
+      @closeModal={{@closeModal}}
     >
       <:body>
         <div class="icon-picker-modal__icon-picker">
@@ -22,6 +23,7 @@ export default class IconPickerModal extends Component {
         <DButton
           @label="cancel"
           class="icon-picker-modal__cancel-button btn-default"
+          @action={{@closeModal}}
         />
       </:footer>
     </DModal>
