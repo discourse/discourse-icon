@@ -6,7 +6,7 @@ import { i18n } from "discourse-i18n";
 export default class IconPickerModal extends Component {
   <template>
     <DModal
-      @title="Insert Icon"
+      @title={{i18n (themePrefix "modal.title")}}
       class="icon-picker-modal"
       @closeModal={{@closeModal}}
     >
