@@ -2,6 +2,7 @@ import { htmlSafe } from "@ember/template";
 import { isExistingIconId, renderIcon } from "discourse/lib/icon-library";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { escapeExpression } from "discourse/lib/utilities";
+import IconPickerModal from "../components/modal/icon-picker.gjs";
 
 function _attachIcons(cooked) {
   const icons = cooked.querySelectorAll(".d-wrap[data-wrap=icon]");
@@ -37,6 +38,23 @@ export default {
       api.decorateCookedElement(_attachIcons, {
         id: "discourse-icon",
       });
+
+      if (settings.insert_icon_composer_button_enabled) {
+        api.addComposerToolbarPopupMenuOption({
+          action(event) {
+            const modal = api.container.lookup("service:modal");
+            modal.show(IconPickerModal, {
+              model: {
+                insert: (iconId) =>
+                  event.addText(`[wrap=icon id=${iconId}][/wrap]`),
+              },
+            });
+          },
+          group: "insertions",
+          label: themePrefix("insert_icon"),
+          icon: "discourse-emojis",
+        });
+      }
     });
   },
 };
