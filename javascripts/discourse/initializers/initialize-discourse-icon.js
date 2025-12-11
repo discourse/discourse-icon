@@ -51,7 +51,7 @@ export default {
             });
           },
           group: "insertions",
-          label: themePrefix("toolbar.button_label"),
+          label: themePrefix("insert_icon"),
           icon: "discourse-emojis",
         });
       }

@@ -24,7 +24,7 @@ export default class IconPickerModal extends Component {
 
   <template>
     <DModal
-      @title={{i18n (themePrefix "modal.title")}}
+      @title={{i18n (themePrefix "insert_icon")}}
       class="icon-picker-modal"
       @closeModal={{@closeModal}}
     >

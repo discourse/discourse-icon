@@ -3,7 +3,4 @@ en:
     settings:
       insert_icon_composer_button_enabled:
         description: "Add 'Insert Icon' as a composer toolbar option."
-  toolbar:
-    button_label: "Insert icon"
-  modal:
-    title: "Insert Icon"
+  insert_icon: "Insert Icon"
