@@ -19,7 +19,7 @@ RSpec.describe "Composer icon picker", type: :system do
 
       find(".toolbar-menu__options-trigger").click
 
-      expect(page).to have_no_css("button[title='Insert icon']")
+      expect(page).to have_no_css("button[title='Insert Icon']")
     end
   end
 
@@ -34,7 +34,7 @@ RSpec.describe "Composer icon picker", type: :system do
       expect(composer).to be_opened
 
       find(".toolbar-menu__options-trigger").click
-      find("button[title='Insert icon']").click
+      find("button[title='Insert Icon']").click
 
       expect(page).to have_css(".icon-picker-modal")
 
@@ -54,7 +54,7 @@ RSpec.describe "Composer icon picker", type: :system do
       expect(composer).to be_opened
 
       find(".toolbar-menu__options-trigger").click
-      find("button[title='Insert icon']").click
+      find("button[title='Insert Icon']").click
 
       expect(page).to have_css(".icon-picker-modal")
 
