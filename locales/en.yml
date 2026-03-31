@@ -1,0 +1,6 @@
+en:
+  theme_metadata:
+    settings:
+      insert_icon_composer_button_enabled:
+        description: "Add 'Insert Icon' as a composer toolbar option."
+  insert_icon: "Insert Icon"
